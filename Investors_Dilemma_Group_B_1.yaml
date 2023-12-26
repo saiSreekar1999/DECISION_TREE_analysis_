@@ -1,0 +1,241 @@
+name: Investor Dilemma
+variables:
+    ## Given Probabilities
+    P(F): 0.5
+    P(NF): 0.5
+    P(MS): 0.8
+    P(MF): 0.2
+    P(Pos/MS): 0.8
+    P(Neg/MS): 1-P(Pos/MS)
+    P(Neg/MF): 0.9
+    P(Pos/MF): 1-P(Neg/MF)
+    ## Defined Costs
+    First stage cost: 50000
+    R&D cost: 500000
+    Market Analysis Test: 10000
+    Market Failure payoff: -300000
+    Market Success payoff: 1500000
+    Angel Investor loan: 50000
+    AI payoff: 1250000
+    ## Derived probabilites:
+    P(Pos and MS): P(Pos/MS) * P(MS)
+    P(Pos and MF): P(Pos/MF) * P(MF)
+    P(Neg and MS): P(Neg/MS) * P(MS)
+    P(Neg and MF): P(Neg/MF) * P(MF)
+    P(Neg): P(Neg and MS) + P(Neg and MF)
+    P(Pos): P(Pos and MS) + P(Pos and MF)
+    P(MS|Pos): P(Pos and MS) / P(Pos)
+    P(MS|Neg): P(Neg and MS) / P(Neg)
+    P(MF|Pos): P(Pos and MF) / P(Pos)
+    P(MF|Neg): P(Neg and MF) / P(Neg)
+type: decision
+Angel Investor:
+    cost: 0
+    type: decision
+    Proceed with Feasibility Test - Wait on Market Analysis Test:
+        cost: 0
+        type: chance
+        Feasible:
+            p: P(F)
+            type: decision
+            Proceed With R&D - No Market Analysis Test:
+                cost: R&D cost
+                type: chance
+                Market success:
+                    p: P(MS)
+                    payoff: AI payoff
+                Market Failure:
+                    p: P(MF)
+                    payoff: Market Failure payoff
+            Proceed With Market Analysis - Wait On R&D:
+                cost: Market Analysis Test
+                type: chance
+                positive:
+                    p: P(Pos)
+                    type: decision
+                    R&D:
+                        cost: R&D cost 
+                        type: chance
+                        Market success:
+                            p: P(MS|Pos)
+                            payoff: AI payoff
+                        Market Failure:
+                            p: P(MF|Pos)
+                            payoff: Market Failure payoff
+                    Do Nothing:
+                        payoff: 0
+                Negative:
+                    p: P(Neg)
+                    type: decision
+                    R&D:
+                        cost: R&D cost 
+                        type: chance
+                        Market success:
+                            p: P(MS|Neg)
+                            payoff: AI payoff
+                        Market Failure:
+                            p: P(MF|Neg)
+                            payoff: Market Failure payoff
+                    Do Nothing:
+                        payoff: 0
+        Not Feasible:
+            p: 0.5
+            payoff: 0
+    Proceed With Market Analysis - Wait on Feasibility Test:
+        cost: 0
+        type: chance
+        positive:
+            p: P(Pos)
+            type: decision
+            Feasibility Test:
+                cost: 10000
+                type: chance
+                Feasible:
+                    p: P(F)
+                    type: decision
+                    R&D:
+                        cost: R&D cost
+                        type: chance
+                        Market Success:
+                            p: P(MS|Pos)
+                            payoff: AI payoff
+                        Market Failure:
+                            p: P(MF|Pos)
+                            payoff: Market Failure payoff
+                    Do nothing:
+                        payoff: 0 
+                Not Feasible:
+                    p: P(NF)
+                    payoff: 0
+            Do nothing:
+                payoff: 0 
+        Negative:
+            p: P(Neg)
+            type: decision
+            Feasibility Test:
+                cost: 10000
+                type: chance
+                Feasible:
+                    p: P(F)
+                    type: decision
+                    R&D:
+                        cost: R&D cost
+                        type: chance
+                        Market Success:
+                            p: P(MS|Neg)
+                            payoff: AI payoff
+                        Market Failure:
+                            p: P(MF|Neg)
+                            payoff: Market Failure payoff
+                    Do Nothing:
+                        payoff: 0         
+                Not Feasible:
+                    p: P(NF)
+                    payoff: 0 
+            Do nothing:
+                payoff: 0
+No Angel Investor:
+    cost: 0
+    type: decision
+    Proceed With Market Analysis - Wait on Feasibility Test:
+        cost: Market Analysis Test
+        type: chance
+        positive:
+            p: P(Pos)
+            type: decision
+            Feasibility Test:
+                cost: First stage cost
+                type: chance
+                Feasible:
+                    p: P(F)
+                    type: decision
+                    R&D:
+                        cost: R&D cost
+                        type: chance
+                        Market Success:
+                            p: P(MS|Pos)
+                            payoff: Market Success payoff
+                        Market Failure:
+                            p: P(MF|Pos)
+                            payoff: Market Failure payoff
+                    Do nothing:
+                        payoff: 0
+                Not Feasible:
+                    p: P(NF)
+                    payoff: 0
+            Do nothing:
+                payoff: 0
+        Negative:
+            p: P(Neg)
+            type: decision
+            Feasibility Test:
+                cost: First stage cost
+                type: chance
+                Feasible:
+                    p: P(F)
+                    type: decision
+                    R&D:
+                        cost: R&D cost
+                        type: chance
+                        Market Success:
+                            p: P(MS|Neg)
+                            payoff: Market Success payoff
+                        Market Failure:
+                            p: P(MF|Neg)
+                            payoff: Market Failure payoff
+                    Do Nothing:
+                        payoff: 0          
+                Not Feasible:
+                    p: P(NF)
+                    payoff: 0
+            Do nothing:
+                payoff: 0
+    Proceed With Proceed with Feasibility Test - Wait on Market Analysis Test:
+        cost: First stage cost
+        type: chance
+        Flop:
+            p: 0.5
+            payoff: 0
+        Hit:
+            p: 0.5
+            type: decision
+            Proceed With Market Analysis - Wait On R&D:
+                cost: Market Analysis Test
+                type: chance
+                Positive:
+                    p: P(Pos)
+                    type: decision
+                    Nothing:
+                        payoff: 0
+                    R&D:
+                        cost: R&D cost
+                        type: chance
+                        Product Hit:
+                            p: P(MS|Pos)
+                            payoff: Market Success payoff
+                        Product Flop:
+                            p: P(MF|Pos)
+                            payoff: Market Failure payoff
+                Negative:
+                    p: P(Neg)
+                    type: decision
+                    Nothing:
+                        payoff: 0
+                    R&D:
+                        cost: R&D cost
+                        type: chance
+                        Product Hit:
+                            p: P(MS|Neg)
+                            payoff: Market Success payoff
+                        Product Flop:
+                            p: P(MF|Neg)
+                            payoff: Market Failure payoff
+            Proceed With R&D - No Market Analysis Tes:
+                cost: R&D cost
+                type: chance
+                Product Hit:
+                    p: P(MS)
+                    payoff: Market Success payoff
+                Product Flop:
+                    p: P(MF)
+                    payoff: Market Failure payoff

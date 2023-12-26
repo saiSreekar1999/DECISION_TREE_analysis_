@@ -1,0 +1,183 @@
+Variable input values:
+                                      
+P(F)                        0.50000000
+P(NF)                       0.50000000
+P(MS)                       0.80000000
+P(MF)                       0.20000000
+P(Pos/MS)                   0.80000000
+P(Neg/MS)                   0.20000000
+P(Neg/MF)                   0.90000000
+P(Pos/MF)                   0.10000000
+First stage cost        50000.00000000
+R&D cost               500000.00000000
+Market Analysis Test    10000.00000000
+Market Failure payoff -300000.00000000
+Market Success payoff 1500000.00000000
+Angel Investor loan     50000.00000000
+AI payoff             1250000.00000000
+P(Pos and MS)               0.64000000
+P(Pos and MF)               0.02000000
+P(Neg and MS)               0.16000000
+P(Neg and MF)               0.18000000
+P(Neg)                      0.34000000
+P(Pos)                      0.66000000
+P(MS|Pos)                   0.96969697
+P(MS|Neg)                   0.47058824
+P(MF|Pos)                   0.03030303
+P(MF|Neg)                   0.52941176
+
+Initial decision tree:
+                                                                                   Probability       Payoff       Cost     Type
+ Investor Dilemma                                                                                                              
+  ¦--Angel Investor                                                                                               0.00 decision
+  ¦   ¦--Proceed with Feasibility Test - Wait on Market Analysis Test                                             0.00 decision
+  ¦   ¦   ¦--Feasible                                                                  50.00 %                           chance
+  ¦   ¦   ¦   ¦--Proceed With R&D - No Market Analysis Test                                                 500,000.00 decision
+  ¦   ¦   ¦   ¦   ¦--Market success                                                    80.00 % 1,250,000.00              chance
+  ¦   ¦   ¦   ¦   °--Market Failure                                                    20.00 %  -300,000.00              chance
+  ¦   ¦   ¦   °--Proceed With Market Analysis - Wait On R&D                                                  10,000.00 decision
+  ¦   ¦   ¦       ¦--positive                                                          66.00 %                           chance
+  ¦   ¦   ¦       ¦   ¦--R&D                                                                                500,000.00 decision
+  ¦   ¦   ¦       ¦   ¦   ¦--Market success                                            96.97 % 1,250,000.00              chance
+  ¦   ¦   ¦       ¦   ¦   °--Market Failure                                             3.03 %  -300,000.00              chance
+  ¦   ¦   ¦       ¦   °--Do Nothing                                                                    0.00            decision
+  ¦   ¦   ¦       °--Negative                                                          34.00 %                           chance
+  ¦   ¦   ¦           ¦--R&D                                                                                500,000.00 decision
+  ¦   ¦   ¦           ¦   ¦--Market success                                            47.06 % 1,250,000.00              chance
+  ¦   ¦   ¦           ¦   °--Market Failure                                            52.94 %  -300,000.00              chance
+  ¦   ¦   ¦           °--Do Nothing                                                                    0.00            decision
+  ¦   ¦   °--Not Feasible                                                              50.00 %         0.00              chance
+  ¦   °--Proceed With Market Analysis - Wait on Feasibility Test                                                  0.00 decision
+  ¦       ¦--positive                                                                  66.00 %                           chance
+  ¦       ¦   ¦--Feasibility Test                                                                            10,000.00 decision
+  ¦       ¦   ¦   ¦--Feasible                                                          50.00 %                           chance
+  ¦       ¦   ¦   ¦   ¦--R&D                                                                                500,000.00 decision
+  ¦       ¦   ¦   ¦   ¦   ¦--Market Success                                            96.97 % 1,250,000.00              chance
+  ¦       ¦   ¦   ¦   ¦   °--Market Failure                                             3.03 %  -300,000.00              chance
+  ¦       ¦   ¦   ¦   °--Do nothing                                                                    0.00            decision
+  ¦       ¦   ¦   °--Not Feasible                                                      50.00 %         0.00              chance
+  ¦       ¦   °--Do nothing                                                                            0.00            decision
+  ¦       °--Negative                                                                  34.00 %                           chance
+  ¦           ¦--Feasibility Test                                                                            10,000.00 decision
+  ¦           ¦   ¦--Feasible                                                          50.00 %                           chance
+  ¦           ¦   ¦   ¦--R&D                                                                                500,000.00 decision
+  ¦           ¦   ¦   ¦   ¦--Market Success                                            47.06 % 1,250,000.00              chance
+  ¦           ¦   ¦   ¦   °--Market Failure                                            52.94 %  -300,000.00              chance
+  ¦           ¦   ¦   °--Do Nothing                                                                    0.00            decision
+  ¦           ¦   °--Not Feasible                                                      50.00 %         0.00              chance
+  ¦           °--Do nothing                                                                            0.00            decision
+  °--No Angel Investor                                                                                            0.00 decision
+      ¦--Proceed With Market Analysis - Wait on Feasibility Test                                             10,000.00 decision
+      ¦   ¦--positive                                                                  66.00 %                           chance
+      ¦   ¦   ¦--Feasibility Test                                                                            50,000.00 decision
+      ¦   ¦   ¦   ¦--Feasible                                                          50.00 %                           chance
+      ¦   ¦   ¦   ¦   ¦--R&D                                                                                500,000.00 decision
+      ¦   ¦   ¦   ¦   ¦   ¦--Market Success                                            96.97 % 1,500,000.00              chance
+      ¦   ¦   ¦   ¦   ¦   °--Market Failure                                             3.03 %  -300,000.00              chance
+      ¦   ¦   ¦   ¦   °--Do nothing                                                                    0.00            decision
+      ¦   ¦   ¦   °--Not Feasible                                                      50.00 %         0.00              chance
+      ¦   ¦   °--Do nothing                                                                            0.00            decision
+      ¦   °--Negative                                                                  34.00 %                           chance
+      ¦       ¦--Feasibility Test                                                                            50,000.00 decision
+      ¦       ¦   ¦--Feasible                                                          50.00 %                           chance
+      ¦       ¦   ¦   ¦--R&D                                                                                500,000.00 decision
+      ¦       ¦   ¦   ¦   ¦--Market Success                                            47.06 % 1,500,000.00              chance
+      ¦       ¦   ¦   ¦   °--Market Failure                                            52.94 %  -300,000.00              chance
+      ¦       ¦   ¦   °--Do Nothing                                                                    0.00            decision
+      ¦       ¦   °--Not Feasible                                                      50.00 %         0.00              chance
+      ¦       °--Do nothing                                                                            0.00            decision
+      °--Proceed With Proceed with Feasibility Test - Wait on Market Analysis Test                           50,000.00 decision
+          ¦--Flop                                                                      50.00 %         0.00              chance
+          °--Hit                                                                       50.00 %                           chance
+              ¦--Proceed With Market Analysis - Wait On R&D                                                  10,000.00 decision
+              ¦   ¦--Positive                                                          66.00 %                           chance
+              ¦   ¦   ¦--Nothing                                                                       0.00            decision
+              ¦   ¦   °--R&D                                                                                500,000.00 decision
+              ¦   ¦       ¦--Product Hit                                               96.97 % 1,500,000.00              chance
+              ¦   ¦       °--Product Flop                                               3.03 %  -300,000.00              chance
+              ¦   °--Negative                                                          34.00 %                           chance
+              ¦       ¦--Nothing                                                                       0.00            decision
+              ¦       °--R&D                                                                                500,000.00 decision
+              ¦           ¦--Product Hit                                               47.06 % 1,500,000.00              chance
+              ¦           °--Product Flop                                              52.94 %  -300,000.00              chance
+              °--Proceed With R&D - No Market Analysis Tes                                                  500,000.00 decision
+                  ¦--Product Hit                                                       80.00 % 1,500,000.00              chance
+                  °--Product Flop                                                      20.00 %  -300,000.00              chance
+
+Final decision tree:
+                                                                                   Probability       Payoff       Cost     Type
+ Investor Dilemma                                                                                270,000.00                    
+  ¦--Angel Investor                                                                              227,000.00       0.00 decision
+  ¦   ¦--Proceed with Feasibility Test - Wait on Market Analysis Test                            227,000.00       0.00 decision
+  ¦   ¦   ¦--Feasible                                                                  50.00 %   454,000.00              chance
+  ¦   ¦   ¦   ¦--Proceed With R&D - No Market Analysis Test                                      440,000.00 500,000.00 decision
+  ¦   ¦   ¦   ¦   ¦--Market success                                                    80.00 % 1,250,000.00              chance
+  ¦   ¦   ¦   ¦   °--Market Failure                                                    20.00 %  -300,000.00              chance
+  ¦   ¦   ¦   °--Proceed With Market Analysis - Wait On R&D                                      454,000.00  10,000.00 decision
+  ¦   ¦   ¦       ¦--positive                                                          66.00 %   703,030.30              chance
+  ¦   ¦   ¦       ¦   ¦--R&D                                                                     703,030.30 500,000.00 decision
+  ¦   ¦   ¦       ¦   ¦   ¦--Market success                                            96.97 % 1,250,000.00              chance
+  ¦   ¦   ¦       ¦   ¦   °--Market Failure                                             3.03 %  -300,000.00              chance
+  ¦   ¦   ¦       ¦   °--Do Nothing                                                                    0.00            decision
+  ¦   ¦   ¦       °--Negative                                                          34.00 %         0.00              chance
+  ¦   ¦   ¦           ¦--R&D                                                                     -70,588.24 500,000.00 decision
+  ¦   ¦   ¦           ¦   ¦--Market success                                            47.06 % 1,250,000.00              chance
+  ¦   ¦   ¦           ¦   °--Market Failure                                            52.94 %  -300,000.00              chance
+  ¦   ¦   ¦           °--Do Nothing                                                                    0.00            decision
+  ¦   ¦   °--Not Feasible                                                              50.00 %         0.00              chance
+  ¦   °--Proceed With Market Analysis - Wait on Feasibility Test                                 225,400.00       0.00 decision
+  ¦       ¦--positive                                                                  66.00 %   341,515.15              chance
+  ¦       ¦   ¦--Feasibility Test                                                                341,515.15  10,000.00 decision
+  ¦       ¦   ¦   ¦--Feasible                                                          50.00 %   703,030.30              chance
+  ¦       ¦   ¦   ¦   ¦--R&D                                                                     703,030.30 500,000.00 decision
+  ¦       ¦   ¦   ¦   ¦   ¦--Market Success                                            96.97 % 1,250,000.00              chance
+  ¦       ¦   ¦   ¦   ¦   °--Market Failure                                             3.03 %  -300,000.00              chance
+  ¦       ¦   ¦   ¦   °--Do nothing                                                                    0.00            decision
+  ¦       ¦   ¦   °--Not Feasible                                                      50.00 %         0.00              chance
+  ¦       ¦   °--Do nothing                                                                            0.00            decision
+  ¦       °--Negative                                                                  34.00 %         0.00              chance
+  ¦           ¦--Feasibility Test                                                                -10,000.00  10,000.00 decision
+  ¦           ¦   ¦--Feasible                                                          50.00 %         0.00              chance
+  ¦           ¦   ¦   ¦--R&D                                                                     -70,588.24 500,000.00 decision
+  ¦           ¦   ¦   ¦   ¦--Market Success                                            47.06 % 1,250,000.00              chance
+  ¦           ¦   ¦   ¦   °--Market Failure                                            52.94 %  -300,000.00              chance
+  ¦           ¦   ¦   °--Do Nothing                                                                    0.00            decision
+  ¦           ¦   °--Not Feasible                                                      50.00 %         0.00              chance
+  ¦           °--Do nothing                                                                            0.00            decision
+  °--No Angel Investor                                                                           270,000.00       0.00 decision
+      ¦--Proceed With Market Analysis - Wait on Feasibility Test                                 269,000.00  10,000.00 decision
+      ¦   ¦--positive                                                                  66.00 %   422,727.27              chance
+      ¦   ¦   ¦--Feasibility Test                                                                422,727.27  50,000.00 decision
+      ¦   ¦   ¦   ¦--Feasible                                                          50.00 %   945,454.55              chance
+      ¦   ¦   ¦   ¦   ¦--R&D                                                                     945,454.55 500,000.00 decision
+      ¦   ¦   ¦   ¦   ¦   ¦--Market Success                                            96.97 % 1,500,000.00              chance
+      ¦   ¦   ¦   ¦   ¦   °--Market Failure                                             3.03 %  -300,000.00              chance
+      ¦   ¦   ¦   ¦   °--Do nothing                                                                    0.00            decision
+      ¦   ¦   ¦   °--Not Feasible                                                      50.00 %         0.00              chance
+      ¦   ¦   °--Do nothing                                                                            0.00            decision
+      ¦   °--Negative                                                                  34.00 %         0.00              chance
+      ¦       ¦--Feasibility Test                                                                -26,470.59  50,000.00 decision
+      ¦       ¦   ¦--Feasible                                                          50.00 %    47,058.82              chance
+      ¦       ¦   ¦   ¦--R&D                                                                      47,058.82 500,000.00 decision
+      ¦       ¦   ¦   ¦   ¦--Market Success                                            47.06 % 1,500,000.00              chance
+      ¦       ¦   ¦   ¦   °--Market Failure                                            52.94 %  -300,000.00              chance
+      ¦       ¦   ¦   °--Do Nothing                                                                    0.00            decision
+      ¦       ¦   °--Not Feasible                                                      50.00 %         0.00              chance
+      ¦       °--Do nothing                                                                            0.00            decision
+      °--Proceed With Proceed with Feasibility Test - Wait on Market Analysis Test               270,000.00  50,000.00 decision
+          ¦--Flop                                                                      50.00 %         0.00              chance
+          °--Hit                                                                       50.00 %   640,000.00              chance
+              ¦--Proceed With Market Analysis - Wait On R&D                                      630,000.00  10,000.00 decision
+              ¦   ¦--Positive                                                          66.00 %   945,454.55              chance
+              ¦   ¦   ¦--Nothing                                                                       0.00            decision
+              ¦   ¦   °--R&D                                                                     945,454.55 500,000.00 decision
+              ¦   ¦       ¦--Product Hit                                               96.97 % 1,500,000.00              chance
+              ¦   ¦       °--Product Flop                                               3.03 %  -300,000.00              chance
+              ¦   °--Negative                                                          34.00 %    47,058.82              chance
+              ¦       ¦--Nothing                                                                       0.00            decision
+              ¦       °--R&D                                                                      47,058.82 500,000.00 decision
+              ¦           ¦--Product Hit                                               47.06 % 1,500,000.00              chance
+              ¦           °--Product Flop                                              52.94 %  -300,000.00              chance
+              °--Proceed With R&D - No Market Analysis Tes                                       640,000.00 500,000.00 decision
+                  ¦--Product Hit                                                       80.00 % 1,500,000.00              chance
+                  °--Product Flop                                                      20.00 %  -300,000.00              chance
